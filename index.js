@@ -17,6 +17,10 @@ app.use(
   })
 );
 
+app.use('/health', () => {
+  return 'ok';
+});
+
 io.on('connection', (socket) => {
   socket.emit('Hi sockets established');
 

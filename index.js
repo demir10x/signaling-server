@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const { Server } = require('socket.io');
 const { createServer } = require('http');
+const { Server } = require('socket.io');
 
 const httpServer = createServer();
 const io = new Server(httpServer, {
@@ -10,12 +10,6 @@ const io = new Server(httpServer, {
     origin: '*',
   },
 });
-
-app.use(
-  cors({
-    origin: '*',
-  })
-);
 
 io.on('connection', (socket) => {
   socket.emit('Hi sockets established');
@@ -38,4 +32,4 @@ io.on('connection', (socket) => {
 });
 
 io.listen(3000);
-console.log('socket io server started......');
+console.log('Signaling Sever Started at Port 3000');

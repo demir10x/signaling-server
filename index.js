@@ -37,5 +37,4 @@ io.on('connection', (socket) => {
   });
 });
 
-io.listen(3000);
 console.log('Signaling Sever Started at Port 3000');

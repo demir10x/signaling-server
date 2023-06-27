@@ -21,6 +21,10 @@ app.use('/health', () => {
   return 'ok';
 });
 
+app.get('/', (req, res) => {
+  res.send('Hello World');
+});
+
 io.on('connection', (socket) => {
   socket.emit('Hi sockets established');
 
@@ -41,5 +45,5 @@ io.on('connection', (socket) => {
   });
 });
 
-io.listen(443);
+io.listen(process.env.PORT || 5000);
 console.log('Signaling Sever Started at Port 3000');

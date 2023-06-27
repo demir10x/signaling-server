@@ -11,6 +11,12 @@ const io = new Server(httpServer, {
   },
 });
 
+app.use(
+  cors({
+    origin: '*',
+  })
+);
+
 io.on('connection', (socket) => {
   socket.emit('Hi sockets established');
 

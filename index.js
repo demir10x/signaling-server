@@ -46,4 +46,4 @@ io.on('connection', (socket) => {
 });
 
 io.listen(process.env.PORT || 5000);
-console.log('Signaling Sever Started at Port 3000');
+console.log(`Signaling Sever Started at Port ${process.env.PORT || 5000}`);

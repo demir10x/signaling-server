@@ -33,6 +33,11 @@ io.on('connection', (socket) => {
     socket.join(roomId);
   });
 
+  socket.on('triggering', (payload) => {
+    console.warn('triggering');
+    io.to(payload.room).emit('triggered', payload);
+  });
+
   //emit recevied message to specified room
   socket.on('sending signal', (payload) => {
     console.log('sending signal coming:' + payload);

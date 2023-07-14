@@ -33,21 +33,21 @@ io.on('connection', (socket) => {
     socket.join(roomId);
   });
 
-  socket.on('triggering', (payload) => {
-    console.warn('triggering');
-    io.to(payload.room).emit('triggered', payload);
-  });
+  // socket.on('triggering', (payload) => {
+  //   console.warn('triggering');
+  //   io.to(payload.room).emit('triggered', payload);
+  // });
 
-  //emit recevied message to specified room
-  socket.on('sending signal', (payload) => {
-    console.log('sending signal coming:' + payload);
-    io.to(payload.room).emit('received signal', payload.signal);
-  });
+  // //emit recevied message to specified room
+  // socket.on('sending signal', (payload) => {
+  //   console.log('sending signal coming:' + payload);
+  //   io.to(payload.room).emit('received signal', payload.signal);
+  // });
 
-  socket.on('returning signal', (payload) => {
-    console.log('receiving signal coming:' + payload);
-    io.to(payload.room).emit('returned signal', payload.signal);
-  });
+  // socket.on('returning signal', (payload) => {
+  //   console.log('receiving signal coming:' + payload);
+  //   io.to(payload.room).emit('returned signal', payload.signal);
+  // });
 
   socket.on('send offer', (payload) => {
     console.warn('payload', payload);
@@ -60,5 +60,5 @@ io.on('connection', (socket) => {
   });
 });
 
-io.listen(process.env.PORT || 5000);
-console.log(`Signaling Sever Started at Port ${process.env.PORT || 5000}`);
+io.listen(3000);
+console.log(`Signaling Sever Started at Port 3000`);

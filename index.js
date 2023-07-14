@@ -60,5 +60,10 @@ io.on('connection', (socket) => {
   });
 });
 
-io.listen(process.env.PORT || 5000);
-console.log(`Signaling Sever Started at Port ${process.env.PORT || 5000}`);
+// Comment the below 2 lines if you are pushing for Heroku
+io.listen(3000);
+console.log(`Signaling Sever Started at Port 3000`);
+
+//Uncomment below lines if you are pushing for Heroku
+// io.listen(process.env.PORT || 5000);
+// console.log(`Signaling Sever Started at Port ${process.env.PORT || 5000}`);

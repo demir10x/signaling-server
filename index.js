@@ -48,6 +48,16 @@ io.on('connection', (socket) => {
     console.log('receiving signal coming:' + payload);
     io.to(payload.room).emit('returned signal', payload.signal);
   });
+
+  socket.on('send offer', (payload) => {
+    console.warn('payload', payload);
+    io.to(payload.room).emit('send offer', payload.offer);
+  });
+
+  socket.on('send answer', (payload) => {
+    console.warn('payload', payload);
+    io.to(payload.room).emit('send answer', payload.answer);
+  });
 });
 
 io.listen(process.env.PORT || 5000);
